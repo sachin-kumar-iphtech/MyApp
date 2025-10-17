@@ -5,8 +5,11 @@ import Entypo from "react-native-vector-icons/Entypo";
 
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import RegisterScreen from "./screens/RegisterScreen"
 
 const Stack = createNativeStackNavigator();
+
+
 const Tab = createBottomTabNavigator();
 
 // Bottom Tab navigator with Home only
@@ -14,21 +17,14 @@ function BottomTabs() {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
-        name="HomeTab"
+        name="HomeScreen"
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => <Entypo name="home" color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Entypo name="login" color={color} size={size} />,
         }}
       />
-      <Tab.Screen
-        name="ProfileTab"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => <Entypo name="user" color={color} size={size} />,
-        }}
-      />
+      {onPress=()=>handleNavigation}
     </Tab.Navigator>
   );
 }
@@ -42,7 +38,9 @@ export default function MainNavigation() {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
+      <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
