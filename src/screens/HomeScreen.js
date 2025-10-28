@@ -16,7 +16,7 @@ const HomeScreen = ({ navigation }) => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigation.replace('Login');
+    //navigation.replace('Login');
   };
 
   return (
