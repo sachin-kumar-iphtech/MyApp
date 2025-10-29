@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/authSlice';
 import DashboardScreen from './DashboardScreen';
+import ApiScreen from './ApiScreen';
 import ProfileScreen from './ProfileScreen';
 import { useTheme } from '../context/ThemeContext';
 import { View, Button } from 'react-native';
@@ -33,6 +34,7 @@ const HomeScreen = ({ navigation }) => {
             let iconName;
             if (route.name === 'Dashboard') iconName = 'home-outline';
             else if (route.name === 'Profile') iconName = 'person-outline';
+            else if (route.name === 'Api') iconName = 'h';
             return <Icon name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: theme === 'dark' ? '#fff' : '#000',
@@ -44,6 +46,7 @@ const HomeScreen = ({ navigation }) => {
       >
         <Tab.Screen name="Dashboard" component={DashboardScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Api" component={ApiScreen} />
       </Tab.Navigator>
     </>
   );

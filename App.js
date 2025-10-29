@@ -6,6 +6,7 @@ import { store, persistor } from './src/redux/store';
 import { ThemeProvider } from './src/context/ThemeContext';
 import RootNavigator from './src/navigation/RootNavigator';
 
+
 export default function App() {
   return (
     <Provider store={store}>
@@ -17,5 +18,6 @@ export default function App() {
         </ThemeProvider>
       </PersistGate>
     </Provider>
+    
   );
 }
